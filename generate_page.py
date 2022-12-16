@@ -12,13 +12,12 @@ os.mkdir(dest_dir)
 images = []
 for path in paths:
     im = Image.open(path)
-    new_path = path.replace("gobyexample", dest_dir).replace(
-        ".png", ".webp"
-    )
-    images.append(new_path.replace('docs', '.'))
-    im.save(new_path, format='webp', optimize=True, quality=100)
+    path = path.replace("gobyexample", dest_dir)
+    path = path.replace(".png", ".webp")
+    images.append(path.replace('docs', '.'))
+    im.save(path, format='webp', optimize=True, quality=100)
 
-images = '\n'.join([f'<img src="{im}" style="width: 100%; margin: 8px 0;"/>' for im in images])
+images = '\n'.join([f'<img src="{im}" style="width: 100%;"/>' for im in images])
 
 html_content = f"""
 <!DOCTYPE html>
