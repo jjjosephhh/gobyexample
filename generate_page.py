@@ -17,8 +17,19 @@ for path in paths:
     images.append(path.replace('docs', '.'))
     im.save(path, format='webp', optimize=True, quality=100)
 
-images = '\n'.join([f'<img src="{im}" style="width: 100%;"/>' for im in images])
+images = '\n<hr/>\n'.join([f'<img src="{im}" style="width: 100%;"/>' for im in images])
 
+scripts = """
+<script>
+  function pageScroll() {
+    window.scrollBy(0, 0.5);
+    scrolldelay = setTimeout(pageScroll, 35);
+  }
+  window.onload = function() {
+    pageScroll();
+  }
+</script>
+"""
 html_content = f"""
 <!DOCTYPE html>
 <html lang="en">
@@ -30,6 +41,7 @@ html_content = f"""
 </head>
 <body style="padding: 16px;">
 {images}
+{scripts}
 </body>
 </html>
 """
