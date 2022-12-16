@@ -1,5 +1,6 @@
+import os
 dest_dir = 'gobyexample-staging'
-dest_file = 'index.html'
+dest_file = os.path.join('docs', 'index.html')
 urls = [
     "https://gobyexample.com/hello-world",
     "https://gobyexample.com/values",
