@@ -15,7 +15,7 @@ for path in paths:
     new_path = path.replace("gobyexample", dest_dir).replace(
         ".png", ".webp"
     )
-    images.append(new_path)
+    images.append(new_path.replace('docs', '.'))
     im.save(new_path, format='webp', optimize=True, quality=100)
 
 images = '\n'.join([f'<img src="{im}" style="width: 100%; margin: 8px 0;"/>' for im in images])
