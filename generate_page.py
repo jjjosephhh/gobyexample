@@ -17,7 +17,12 @@ for path in paths:
     images.append(path.replace('docs', '.'))
     im.save(path, format='webp', optimize=True, quality=100)
 
-images = '\n<hr/>\n'.join([f'<img src="{im}" style="width: 100%;"/>' for im in images])
+images = '\n'.join([f'<img src="{im}" style="width: 100%;"/>' for im in images])
+
+zines_dirs = ['debugging', 'networking', 'perf', 'strace', 'tcpdump', 'wizard']
+zines_dirs = [os.path.join('docs', 'zines-staging', x) for x in zines_dirs]
+zines_files = [os.path.join(x, y).replace('docs', '.') for x in zines_dirs for y in sorted(os.listdir(x)) if '.webp' in y]
+zines_files = '\n'.join([f'<img src="{im}" style="width: 100%;"/>' for im in zines_files])
 
 scripts = """
 <script>
@@ -41,6 +46,7 @@ html_content = f"""
 </head>
 <body style="padding: 16px;">
 {images}
+{zines_files}
 {scripts}
 </body>
 </html>
