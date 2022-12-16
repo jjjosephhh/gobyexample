@@ -18,7 +18,7 @@ for path in paths:
     images.append(new_path)
     im.save(new_path, format='webp', optimize=True, quality=100)
 
-images = '\n'.join([f'<img src="{im}" style="width: 100%;"/>' for im in images])
+images = '\n'.join([f'<img src="{im}" style="width: 100%; margin: 8px 0;"/>' for im in images])
 
 html_content = f"""
 <!DOCTYPE html>
