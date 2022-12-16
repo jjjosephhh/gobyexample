@@ -22,7 +22,7 @@ images = '\n<hr/>\n'.join([f'<img src="{im}" style="width: 100%;"/>' for im in i
 scripts = """
 <script>
   function pageScroll() {
-    window.scrollBy(0, 1);
+    window.scrollBy(0, 0.5);
     scrolldelay = setTimeout(pageScroll, 30);
   }
   window.onload = function() {
